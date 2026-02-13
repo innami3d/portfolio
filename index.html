@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNAMI -- PORTFOLIO</title>
+    
+    <!-- CSSの読み込み -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fontsの読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- ======== ヘッダー ======== -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">INNAMI</a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#about">About</a></li>
+                    <li class="header__nav-item"><a href="#works">Works</a></li>
+                    <li class="header__nav-item"><a href="#skill">Skill</a></li>
+                    <li class="header__nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- スマホ用のハンバーガーメニューボタン -->
+            <button class="header__hamburger" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ======== メインコンテンツ ======== -->
+    <main>
+
+        <!-- ======== ファーストビュー / ヒーローセクション ======== -->
+        <section class="hero">
+            <!-- 背景画像スライドショー -->
+            <div class="hero__image-slider">
+                <!-- ここに背景画像を4枚配置します。画像のパスを差し替えてください。 -->
+                <img src="img/Main1.png" alt="背景画像1" class="hero__background-image">
+                <img src="img/Main2.png" alt="背景画像2" class="hero__background-image">
+                <img src="img/Main3.png" alt="背景画像3" class="hero__background-image">
+                <img src="img/Main4.png" alt="背景画像4" class="hero__background-image">
+            </div>
+            <div class="hero__content">
+                <h1 class="hero__title">INNAMI</h1>
+                <p class="hero__subtitle">Artistic expression using music, programming, and 3DCG</p>
+            </div>
+            <!-- スクロールダウンを示すアイコン -->
+            <div class="hero__scroll">
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- ======== Worksセクション (更新版) ======== -->
+        <section id="works" class="section works">
+            <div class="section__inner">
+                <h2 class="section__title" data-en="Works">制作実績</h2>
+                
+                <div class="works__category-container">
+
+                    <!-- カテゴリ: Movie -->
+                    <div class="works__category">
+                        <h3 class="works__category-title">Movie</h3>
+                        <div class="works__category-content">
+                            <a href="works/detail/work_detail_kr.html" class="works__item">
+                                <figure class="works__item-image-wrapper">
+                                    <img src="img/kr.jpeg" alt="狂っていたい MVサムネイル">
+                                </figure>
+                                <div class="works__item-info works__item-info--static">
+                                    <h4 class="works__item-title">狂っていたい/菅谷諭杏 MV</h4>
+                                    <p class="works__item-desc">ミュージックビデオの制作を担当。3DCGを用いた表現で、全工程を担当しました。</p>
+                                </div>
+                            </a>
+                            <div class="works__category-more">
+                                <!-- カテゴリごとの一覧ページへリンク -->
+                                <a href="works/works_movie.html" class="btn">もっとみる</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- カテゴリ: VR -->
+                    <div class="works__category">
+                        <h3 class="works__category-title">VR</h3>
+                        <div class="works__category-content">
+                            <a href="works/detail/work_detail_Simirage.html" class="works__item">
+                                <figure class="works__item-image-wrapper">
+                                    <img src="img/SIMIRAGE.png" alt="SIMIRAGE サムネイル">
+                                </figure>
+                                <div class="works__item-info works__item-info--static">
+                                    <h4 class="works__item-title">SIMIRAGE</h4>
+                                    <p class="works__item-desc">VRプレイヤーを外から見た滑稽さに注目し、VRコンテンツを楽しむとそれが無意識下でパフォーマンスとなるインスタレーション作品を制作しました。</p>
+                                </div>
+                            </a>
+                            <div class="works__category-more">
+                                <a href="works/works_vr.html" class="btn">もっとみる</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- カテゴリ: Application -->
+                    <div class="works__category">
+                        <h3 class="works__category-title">Application</h3>
+                        <div class="works__category-content">
+                            <a href="works/detail/work_detail_OnTouch.html" class="works__item">
+                                <figure class="works__item-image-wrapper">
+                                    <img src="img/Ontouch.png" alt="音たっちくん サムネイル">
+                                </figure>
+                                <div class="works__item-info works__item-info--static">
+                                    <h4 class="works__item-title">音たっちくん</h4>
+                                    <p class="works__item-desc">身体動作を利用し、子供でも簡単に創作ができるアプリケーションを開発しました。</p>
+                                </div>
+                            </a>
+                            <div class="works__category-more">
+                                <a href="works/works_application.html" class="btn">もっとみる</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="works__category">
+                        <h3 class="works__category-title">Design</h3>
+                        <div class="works__category-content">
+                            <a href="works/detail/work_detail_SI.html" class="works__item">
+                                <figure class="works__item-image-wrapper2">
+                                    <img src="img/siNoTheme-1.png" alt="音たっちくん サムネイル">
+                                </figure>
+                                <div class="works__item-info works__item-info--static">
+                                    <h4 class="works__item-title">SonicInteraction 2025 Spring チラシ&パンフレットデザイン</h4>
+                                    <p class="works__item-desc">学科有志で行っているコンサートのチラシ、パンフレットをAdobe Illustratorにてデザインしました。</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== Skillセクション ======== -->
+        <section id="skill" class="section skill">
+            <div class="section__inner">
+                <h2 class="section__title" data-en="Skill">スキル</h2>
+                <div class="skill__container">
+                    <div class="skill__category">
+                        <h3 class="skill__category-title"><i class="fas fa-music"></i> Music</h3>
+                        <ul class="skill__list">
+                            <li>Logic Pro</li>
+                            <li>Ableton Live</li>
+                            <li>Max/MSP</li>
+                        </ul>
+                    </div>
+                    <div class="skill__category">
+                        <h3 class="skill__category-title"><i class="fas fa-cube"></i>  Editing & 3DCG</h3>
+                        <ul class="skill__list">
+                            <li>Blender</li>
+                            <li>Adobe After Effects</li>
+                            <li>Adobe Premiere Pro</li>
+                            <li>Final Cut Pro</li>
+                        </ul>
+                    </div>
+                    <div class="skill__category">
+                        <h3 class="skill__category-title"><i class="fas fa-code"></i> Programming</h3>
+                        <ul class="skill__list">
+                            <li>JavaScript</li>
+                            <li>Python</li>
+                            <li>Unity</li>
+                        </ul>
+                    </div>
+                    <div class="skill__category">
+                        <h3 class="skill__category-title"><i class="fas fa-paint-brush"></i> Design</h3>
+                        <ul class="skill__list">
+                            <li>Adobe Photoshop</li>
+                            <li>Adobe Illustrator</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ======== Aboutセクション ======== -->
+        <section id="about" class="section about">
+            <div class="section__inner">
+                <h2 class="section__title" data-en="About">私について</h2>
+                <div class="about__content">
+                    <div class="about__image-wrapper">
+                        <!-- ここに自分の写真やアバター画像を設置 -->
+                        <img src="img/pr.png" alt="プロフィール写真" class="about__image">
+                    </div>
+                    <div class="about__text-wrapper">
+                        <p class="about__lead">
+                            音楽、プログラミング、3DCGを駆使した芸術表現を探求しています。
+                        </p>
+                        <p class="about__text">
+                            国立音楽大学コンピュータ音楽研究室にて、メディアアートを制作。鑑賞者の身体感覚に働きかけるインタラクティブな作品や、音と映像が融合したインスタレーションを得意としています。技術と芸術を横断し、新たな知覚体験を生み出すことを目指しています。
+                        </p>
+                        <!-- <a href="about.html" class="btn">View More</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== Contactセクション ======== -->
+        <section id="contact" class="section contact">
+            <div class="section__inner">
+                <h2 class="section__title" data-en="Contact">お問い合わせ</h2>
+                <p class="contact__text">
+                    制作のご依頼・ご相談など、お気軽にお問い合わせください。
+                </p>
+                <a href="mailto:innamitomoki004@gmail.com" class="btn btn--large">
+                    <i class="fas fa-envelope"></i>
+                    innamitomoki004@gmail.com
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======== フッター ======== -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <nav class="footer__nav">
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a href="#about">About</a></li>
+                    <li class="footer__nav-item"><a href="#works">Works</a></li>
+                    <li class="footer__nav-item"><a href="#skill">Skill</a></li>
+                    <li class="footer__nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p class="footer__copyright">&copy; 2024 Tomoki Innami. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScriptの読み込み -->
+    <!-- defer属性はHTMLの読み込み完了後にJSを実行するためのものです -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>
