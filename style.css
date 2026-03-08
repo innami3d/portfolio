@@ -1,0 +1,868 @@
+/*
+style.css
+目次
+1.  基本設定・リセット
+2.  変数定義 (色、フォントなど)
+3.  汎用クラス (セクション、ボタンなど)
+4.  ヘッダー
+5.  ヒーローセクション
+6.  Aboutセクション
+7.  Worksセクション (トップページ)
+8.  Skillセクション
+9.  Contactセクション
+10. フッター
+11. 下層ページ共通スタイル
+12. 作品詳細ページ用スタイル
+13. アニメーション
+14. レスポンシブ対応 (メディアクエリ)
+*/
+
+/* ======== 1. 基本設定・リセット ======== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, p, ul, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.8;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ======== 2. 変数定義 ======== */
+:root {
+    --color-bg: #111111;
+    --color-text: #e0e0e0;
+    --color-primary: #ffffff; /* アクセントカラー (白) */
+    --color-secondary: #aaaaaa; /* やや薄いグレー */
+    --color-bg-section: #1a1a1a; /* セクション背景 */
+
+    --font-family-base: 'Noto Sans JP', sans-serif;
+    --font-family-heading: 'Poppins', sans-serif; /* 英語の見出し用 */
+    
+    --header-height: 80px;
+}
+
+
+/* ======== 3. 汎用クラス ======== */
+.section {
+    padding: 120px 0;
+}
+
+.section__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    padding-bottom: 20px;
+}
+/* 英語のサブタイトル */
+.section__title::before {
+    content: attr(data-en);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-secondary);
+    font-family: var(--font-family-heading);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+}
+/* 下線 */
+.section__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+}
+
+.btn--large {
+    padding: 15px 50px;
+    font-size: 1.1rem;
+}
+
+
+/* ======== 4. ヘッダー ======== */
+.header {
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: top 0.3s;
+}
+
+.header__inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.header__logo {
+    font-family: var(--font-family-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.header__nav-list {
+    display: flex;
+    gap: 40px;
+}
+
+.header__nav-item a {
+    position: relative;
+    font-family: var(--font-family-heading);
+    letter-spacing: 0.05em;
+}
+.header__nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.header__nav-item a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.header__hamburger {
+    display: none; /* スマホ以外では非表示 */
+}
+
+/* ======== 5. ヒーローセクション ======== */
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 作品詳細ページの動画・画像エリア */
+.work-detail__video-wrapper {
+    width: 100%;
+    max-width: 900px; /* 最大幅を少し広げて調整 */
+    margin: 0 auto 40px;
+    background: #000;
+    line-height: 0;
+    overflow: hidden;
+    border-radius: 8px; /* 少し角を丸めてモダンに */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.work-detail__video-wrapper iframe,
+.work-detail__video-wrapper video {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 常に16:9を維持 */
+    border: none;
+    display: block;
+}
+
+.work-detail__video-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* デザイン系の画像表示など、比率を固定したくない場合用（必要に応じて） */
+.work-detail__video-wrapper img.si {
+    margin-bottom: 20px;
+}
+
+.hero__image-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* 背景画像用のスタイル */
+.hero__background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: image-fade 10s infinite; /* 2.5s * 4枚 = 10秒 */
+}
+
+/* アニメーションの遅延を画像ごとに設定 */
+.hero__background-image:nth-child(1) { animation-delay: 0s; }
+.hero__background-image:nth-child(2) { animation-delay: 2.5s; }
+.hero__background-image:nth-child(3) { animation-delay: 5s; }
+.hero__background-image:nth-child(4) { animation-delay: 7.5s; }
+
+/* 背景の上の黒いオーバーレイ */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.hero__content {
+    text-align: center;
+    color: var(--color-primary);
+    position: relative;
+    z-index: 1;
+}
+
+.hero__title {
+    font-family: var(--font-family-heading);
+    font-size: 4rem;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.hero__subtitle {
+    font-family: var(--font-family-base);
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeIn 2s 0.5s ease-out forwards;
+}
+
+.hero__scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    writing-mode: vertical-rl;
+    opacity: 0;
+    animation: fadeIn 1s 1.5s ease-out forwards;
+}
+.hero__scroll::after {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 50px;
+    background: white;
+    animation: scroll-line 1.5s infinite ease-out;
+}
+@keyframes scroll-line {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ======== 6. Aboutセクション ======== */
+.about { order: 2; }
+.about__content {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+.about__image-wrapper {
+    flex: 1;
+    max-width: 400px;
+}
+.about__text-wrapper {
+    flex: 1.5;
+}
+.about__lead {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.about__text {
+    margin-bottom: 40px;
+}
+
+/* ======== 7. Worksセクション (トップページ) ======== */
+.works { order: 0; }
+
+.works-instagram-grid {
+    display: grid;
+    /* 
+      1カラムの最小幅を適切に取り、隙間をあける 
+      スマホ時は後述のメディアクエリで変更
+    */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; 
+}
+
+/* 1つの作品アイテムのコンテナ */
+.works-instagram-grid .works__item {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 1; /* 正方形にする */
+    overflow: hidden;    /* はみ出た画像を隠す */
+    background-color: var(--color-bg-section);
+    border-radius: 4px;
+}
+
+/* 画像を枠内にピッタリ収める */
+.works-instagram-grid .works__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ホバー時に画像を少しズーム */
+.works-instagram-grid .works__item:hover img {
+    transform: scale(1.05);
+}
+
+/* ホバー時の暗いオーバーレイとテキスト情報 */
+.works-instagram-grid .works__item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.works-instagram-grid .works__item:hover .works__item-overlay {
+    opacity: 1;
+}
+
+.works-instagram-grid .category-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.works-instagram-grid .works__item-title {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* ======== 8. Skillセクション ======== */
+.skill { order: 1; }
+.skill__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    text-align: center;
+}
+.skill__category {
+    background-color: var(--color-bg-section);
+    padding: 40px 20px;
+    border-radius: 8px;
+}
+section.skill .skill__category-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-bottom: none;
+}
+.skill__category-title i {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+.skill__list li {
+    line-height: 2;
+}
+
+/* ======== 9. Contactセクション ======== */
+.contact { order: 3; }
+.contact {
+    text-align: center;
+}
+.contact__text {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+.contact .btn i {
+    margin-right: 10px;
+}
+
+.contact__sns {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sns-link {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.sns-link:hover {
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* ======== 10. フッター ======== */
+.footer {
+    padding: 40px;
+    background-color: #000;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.footer__nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.footer__nav-item a:hover {
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+.footer__sns {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.footer__copyright {
+    color: var(--color-secondary);
+}
+
+/* ======== 11. 下層ページ共通スタイル ======== */
+.subpage main {
+    padding-top: var(--header-height);
+}
+
+.page-header {
+    background-color: var(--color-bg-section);
+    padding: 80px 0;
+    text-align: center;
+}
+.page-header__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+.page-header__title {
+    font-family: var(--font-family-heading);
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+.page-header__subtitle {
+    color: var(--color-secondary);
+    font-size: 1.1rem;
+}
+
+.breadcrumb {
+    background-color: var(--color-bg-section);
+    padding-bottom: 20px;
+    font-size: 0.9rem;
+}
+.breadcrumb.breadcrumb--detail {
+    background-color: transparent;
+    padding: 20px 0 0 0;
+}
+.breadcrumb__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px;
+    color: var(--color-secondary);
+}
+.breadcrumb__inner a {
+    transition: color 0.3s;
+}
+.breadcrumb__inner a:hover {
+    color: var(--color-primary);
+}
+.breadcrumb__inner span {
+    margin: 0 10px;
+}
+
+.works-list {
+    padding-top: 80px;
+}
+.works__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.works__item {
+    display: block;
+    overflow: hidden;
+    background-color: var(--color-bg); 
+    border-radius: 8px; 
+}
+.works__item-image-wrapper {
+    display: block;
+    line-height: 0;
+    aspect-ratio: 16 / 9;
+    background-color: #333;
+}
+.works__item-image-wrapper2{
+    width:60%;
+    margin:0 auto;
+    display: block;
+    line-height: 0;
+}
+.works__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.works__item:hover img {
+    transform: scale(1.05);
+}
+.works__item-info {
+    padding: 20px;
+}
+.works__item-info .works__item-title {
+    font-size: 1.2rem;
+}
+.works__item-info .works__item-category {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+
+.back-to-top-link {
+    text-align: center;
+    margin-top: 80px;
+}
+
+
+/* ======== 12. 作品詳細ページ用スタイル ======== */
+.work-detail {
+    padding-top: 40px;
+    padding-bottom: 120px;
+}
+.work-detail__title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.work-detail__video-wrapper {
+    margin-bottom: 60px;
+    text-align: center; /* 画像を中央揃えにする */
+}
+
+/* 動画の場合のスタイル */
+.work-detail__video-wrapper video,
+.work-detail__video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+}
+
+/* 画像の場合のスタイル */
+.work-detail__video-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.work-detail__info {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+.work-detail__meta {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.work-detail__meta dt {
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+.work-detail__meta dd {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+.work-detail__body {
+    flex: 2.5;
+}
+.work-detail__heading {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-secondary);
+}
+.work-detail__body p {
+    margin-bottom: 30px;
+}
+
+/* 「Other Works」セクション */
+.other-works {
+    margin-top: 80px;
+}
+.works__grid--condensed {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.works__grid--condensed .works__item-info {
+    padding: 15px;
+}
+.works__grid--condensed .works__item-title {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+
+.work-detail__pagination {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center; /* ボタンを中央揃えに */
+    align-items: center;
+    gap: 20px;
+}
+.pagination-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.pagination-arrow:hover {
+    color: var(--color-secondary);
+}
+
+
+/* ======== 13. アニメーション ======== */
+
+/* ヒーローセクション背景画像スライドショー用 */
+@keyframes image-fade {
+    0% { opacity: 0; }
+    10% { opacity: 1; } /* (10s * 10% = 1s)かけてフェードイン */
+    25% { opacity: 1; } /* (10s * 15% = 1.5s)表示 */
+    35% { opacity: 0; } /* (10s * 10% = 1s)かけてフェードアウト */
+    100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-target {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s, transform 1s;
+}
+.fade-in-target.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ======== 14. レスポンシブ対応 (〜768px) ======== */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 60px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+    .section__inner,
+    .breadcrumb__inner {
+        padding: 0 20px;
+    }
+    .section__title {
+        font-size: 2rem;
+        margin-bottom: 60px;
+    }
+
+    /* --- ヘッダー & ハンバーガー --- */
+    .header__nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--color-bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.5s;
+    }
+    .header__nav.is-active { transform: translateX(0); }
+    .header__nav-list {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    .header__nav-item a { font-size: 1.5rem; }
+    .header__hamburger {
+        display: block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 1001;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .header__hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-primary);
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s, top 0.3s, opacity 0.3s;
+    }
+    .header__hamburger span:nth-child(1) { top: 0; }
+    .header__hamburger span:nth-child(2) { top: 9px; }
+    .header__hamburger span:nth-child(3) { top: 18px; }
+    .header__hamburger.is-active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+    .header__hamburger.is-active span:nth-child(2) { opacity: 0; }
+    .header__hamburger.is-active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+    /* --- ヒーロー --- */
+    .hero__title { font-size: 2.5rem; }
+    .hero__subtitle { font-size: 1rem; }
+
+    /* --- About --- */
+    .about__content { flex-direction: column; }
+    .about__image-wrapper { max-width: 250px; }
+
+    /* --- Works (トップ) --- */
+    .works-instagram-grid {
+        grid-template-columns: repeat(2, 1fr); /* スマホ時は2列 */
+        gap: 5px; /* スマホなら隙間を少し狭くしても良い */
+    }
+    
+    .works-instagram-grid .works__item-title {
+        font-size: 0.9rem;
+    }
+    
+    .works-instagram-grid .category-badge {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        margin-bottom: 5px;
+    }
+    
+    /* --- Skill --- */
+    .skill__container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* --- 下層ページ共通 --- */
+    .page-header { padding: 60px 20px; }
+    .page-header__title { font-size: 2rem; }
+    .page-header__subtitle { font-size: 1rem; }
+    .works__grid { grid-template-columns: 1fr; gap: 40px; }
+
+    /* --- 作品詳細ページ --- */
+    .work-detail { padding-top: 30px; }
+    .work-detail__title { font-size: 1.8rem; margin-bottom: 30px; }
+    .work-detail__info { flex-direction: column; gap: 40px; margin-bottom: 60px; }
+    .work-detail__heading { font-size: 1.3rem; }
+    
+    /* Other works */
+    .works__grid--condensed {
+        grid-template-columns: 1fr;
+    }
+
+    .work-detail__pagination { flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .work-detail__pagination .btn {
+        order: -1; /* 「一覧へ戻る」ボタンを一番上に */
+        width: 100%;
+        text-align: center;
+    }
+    /* PREV/NEXTボタンが1つしかない場合は非表示にする */
+    .work-detail__pagination .pagination-arrow:only-child {
+        display: none;
+    }
+}

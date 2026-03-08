@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works Detail - INNAMI -- PORTFOLIO</title>
+
+    <!-- CSSの読み込み -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Fontsの読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="subpage">
+
+    <!-- ======== ヘッダー ======== -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="../index.html" class="header__logo">INNAMI</a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="../index.html#about">About</a></li>
+                    <li class="header__nav-item"><a href="../index.html#works">Works</a></li>
+                    <li class="header__nav-item"><a href="../index.html#skill">Skill</a></li>
+                    <li class="header__nav-item"><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- スマホ用のハンバーガーメニューボタン -->
+            <button class="header__hamburger" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ======== メインコンテンツ ======== -->
+    <main>
+
+        <!-- ======== パンくずリスト ======== -->
+        <div class="breadcrumb breadcrumb--detail">
+            <div class="breadcrumb__inner">
+                <a href="../index.html">TOP</a>
+                <span>&gt;</span>
+                <span id="detail-breadcrumb-title">作品名</span>
+            </div>
+        </div>
+
+        <!-- ======== 作品詳細セクション ======== -->
+        <section class="section work-detail">
+            <div class="section__inner">
+
+                <!-- 作品タイトル -->
+                <h1 class="work-detail__title" id="detail-title">作品名</h1>
+
+                <!-- 動画プレーヤー または 画像 -->
+                <div class="work-detail__video-wrapper" id="detail-media-container">
+                    <!-- JSで書き換えます -->
+                </div>
+
+                <!-- 作品情報 -->
+                <div class="work-detail__info">
+                    <dl class="work-detail__meta">
+                        <div>
+                            <dt>Category</dt>
+                            <dd id="detail-category"></dd>
+                        </div>
+                        <div>
+                            <dt>Date</dt>
+                            <dd id="detail-date"></dd>
+                        </div>
+                        <div>
+                            <dt>Tools</dt>
+                            <dd id="detail-tools"></dd>
+                        </div>
+                    </dl>
+                    <div class="work-detail__body" id="detail-body">
+                        <!-- JSで コンセプト と リンクを書き換えます -->
+                    </div>
+                </div>
+
+                <!-- 他の作品への誘導 (Other Works) -->
+                <div class="other-works" id="detail-other-works-section" style="display:none;">
+                    <h2 class="work-detail__heading">Other Works</h2>
+                    <!-- js-works-grid-other という新しいIDを作成して他の作品を1〜3つランダム表示してもよいですが一旦シンプルに非表示にしておきます -->
+                </div>
+
+                <!-- ページネーション -->
+                <div class="work-detail__pagination">
+                    <a href="../index.html#works" class="btn">一覧へ戻る</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======== フッター ======== -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <nav class="footer__nav">
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a href="../index.html#about">About</a></li>
+                    <li class="footer__nav-item"><a href="../index.html#works">Works</a></li>
+                    <li class="footer__nav-item"><a href="../index.html#skill">Skill</a></li>
+                    <li class="footer__nav-item"><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="footer__sns">
+                <a href="https://www.instagram.com/YOUR_ID" target="_blank" rel="noopener noreferrer"
+                    class="sns-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/YOUR_ID" target="_blank" rel="noopener noreferrer" class="sns-link"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="footer__copyright">&copy; 2025 TOMOKI INNAMI.</p>
+        </div>
+    </footer>
+
+    <!-- データ読み込み -->
+    <script src="../works-data.js"></script>
+    <script src="../script.js" defer></script>
+
+</body>
+
+</html>
