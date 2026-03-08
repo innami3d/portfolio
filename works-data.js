@@ -1,5 +1,16 @@
 const worksData = [
   {
+    id: 'vr_ActthefakeKawaii',
+    title: 'Act the fake "Kawaii"',
+    category: 'VR / VR performance',
+    image: 'img/ActthefakeKawaii.png',
+    date: '2026.01',
+    tools: 'Unity, Max/MSP, Blender, Python',
+    video: 'https://www.youtube.com/embed/06tMIwSvEJs?si=PR_Noj2oQYQh8ROE',
+    concept: '本作品は、2 台の VR ヘッドセットとリアルタイムの映像投影を用いて「Kawaii」という概念を批評的に再構築するパフォーマンスである。現代の「Kawaii」はアルゴリズムや演出によって緻密に計算された「結果」であり、実体を持たない虚像に過ぎない。一人の VR プレイヤーは Kawaii 世界の守護者として『Cutie pop in the simulation』へ没入するが、現実空間に残されたその身体は投影映像によって文脈を書き換えられ、本人の意図を離れて映像や音響と結びつき洗練されたパフォーマンスを成す「Kawaii 対象」として一方的に消費されていく。では、同じ空間に立つもう一人のプレイヤーには何が見えているのだろうか。両者の認 識のズレと鑑 賞者さえもシミュレーションの一部として取り込む入れ子構造により、見る者と見られる者の境界を無効化し、現代の「Kawaii」消費構造を批評的に提示する。',
+    link: 'work_detail.html?id=vr_ActthefakeKawaii'
+  },
+  {
     id: 'movie_kr',
     title: '狂っていたい/菅谷諭杏 MV',
     category: 'Movie / MV',
