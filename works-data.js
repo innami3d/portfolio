@@ -1,4 +1,17 @@
 const worksData = [
+  
+  {
+    id: 'tech_sarukani',
+    title: '「テクノロジーダンス さるかに合戦」テクニカルチーフ',
+    category: 'technical staff',
+    image: 'img/sarukani.jpg',
+    images: ['../img/sarukani.jpg'],
+    date: '2026.04',
+    tools: 'Unity, Touchdesigner, UnrealEngine',
+    concept: 'JACKSON kakiさんの「かつてなく自由にダンスを名乗るための煙が立つ回」にて上演された単独公演『テクノロジーダンス さるかに合戦』で、テクニカルスタッフのチーフを務めました。本公演では6台のPCを使用し、Unity、TouchDesigner、Unreal Engineなどの複数アプリケーションを連携させました。具体的な業務としては、プロジェクターへの映像出力のスイッチングをはじめ、Webカメラやスマートフォン、ドローンからの映像入力の処理、モーショントラッカー「mocopi」の運用を担当しました。また、Meta Quest 3向けコンテンツの開発および、そのミラーリング映像の出力なども行い、多角的な技術サポートで公演を支えました。',
+    link: 'work_detail.html?id=tech_sarukani',
+    externalLink:'https://www.kemuri-ga-tatsu.com/2026'
+  },
   {
     id: 'vr_ActthefakeKawaii',
     title: 'Act the fake "Kawaii"',
