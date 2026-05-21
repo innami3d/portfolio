@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AblePhone Support | INNAMI</title>
+    <meta name="description" content="AblePhone（iPhoneセンサーをAbleton Liveへ送るアプリ）のサポートページです。">
+
+    <!-- Google Fontsの読み込み（トップページと統一） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .support-page {
+            padding-top: var(--header-height);
+        }
+
+        .support-app-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 20px;
+            display: block;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .support-intro {
+            max-width: 760px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .support-intro p {
+            color: var(--color-secondary);
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .support-card {
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background-color: var(--color-bg-section);
+        }
+
+        .support-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 14px;
+            font-family: var(--font-family-heading);
+        }
+
+        .support-card ul,
+        .support-card ol {
+            padding-left: 1.2em;
+        }
+
+        .support-meta {
+            margin-top: 40px;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="../../index.html" class="header__logo">INNAMI</a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="../../index.html#about">About</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#works">Works</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#skill">Skill</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="header__hamburger" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="support-page">
+        <section class="section">
+            <div class="section__inner">
+                <h2 class="section__title" data-en="Support">AblePhone サポート</h2>
+                <div class="support-intro">
+                    <img src="../../img/AblePhoneIcon.png" alt="AblePhone app icon" class="support-app-icon">
+                    <p>AblePhone は iPhone のセンサー情報を Ableton Live へ OSC（UDP）で送信するためのアプリです。</p>
+                </div>
+
+                <div class="support-grid">
+                    <article class="support-card">
+                        <h3>できること</h3>
+                        <ul>
+                            <li>iPhone のセンサー値（User Acceleration / Device Motion / Gyro）を取得して送信</li>
+                            <li>フェーダー・Pad 入力を Ableton Live 側へリアルタイム送信</li>
+                            <li>QR コードで接続先（IP / Port）を簡単設定</li>
+                        </ul>
+                    </article>
+
+                    <article class="support-card">
+                        <h3>基本の使い方</h3>
+                        <ol>
+                            <li>Max for Live 側で受信パッチ（M4L デバイス）を開く</li>
+                            <li>Max 側で IP / Port 情報の QR コードを生成</li>
+                            <li>iPhone アプリで SCAN QR を押して読み取り</li>
+                            <li>CONNECT を押して接続</li>
+                            <li>iPhone を動かす / フェーダー操作 / Pad 操作を行い Live 側へ反映</li>
+                        </ol>
+                    </article>
+
+                    <article class="support-card">
+                        <h3>OSC 送信仕様（概要）</h3>
+                        <p>基本的にフレーム単位で /ablephone/frame を送信します。Pad はイベントとして trigger/release の送信構成に対応しています。</p>
+                    </article>
+
+                    <article class="support-card">
+                        <h3>よくある確認ポイント</h3>
+                        <ul>
+                            <li>iPhone と PC が同一ネットワークに接続されているか</li>
+                            <li>QR 読み取り用のカメラ権限が有効か</li>
+                            <li>受信ポート番号が M4L 側と一致しているか</li>
+                            <li>更新レートが高すぎる場合は間引き設定を調整</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <section id="contact" class="section contact">
+                    <div class="section__inner">
+                        <h2 class="section__title" data-en="Contact">お問い合わせ</h2>
+                        <p class="contact__text">不具合報告や質問は以下までお願いします。</p>
+                        <a href="mailto:innami3d@gmail.com" class="btn btn--large">innami3d@gmail.com</a>
+                    </div>
+                </section>
+
+                <p class="support-meta">Last updated: 2026-05-21</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <nav class="footer__nav">
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a href="../../index.html#about">About</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#works">Works</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#skill">Skill</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="footer__sns">
+                <a href="https://www.instagram.com/nam__wav" target="_blank" rel="noopener noreferrer"
+                    class="sns-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/innami_virtual" target="_blank" rel="noopener noreferrer" class="sns-link"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="footer__copyright">&copy; 2024 Innami. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../script.js" defer></script>
+</body>
+
+</html>
