@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AblePhone Privacy Policy | INNAMI</title>
+    <meta name="description" content="AblePhone のプライバシーポリシーです。">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .policy-page {
+            padding-top: var(--header-height);
+        }
+
+        .policy-content {
+            max-width: 820px;
+            margin: 0 auto;
+            background-color: var(--color-bg-section);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 32px;
+        }
+
+        .policy-content h3 {
+            font-size: 1.2rem;
+            margin: 28px 0 10px;
+            font-family: var(--font-family-heading);
+        }
+
+        .policy-content p,
+        .policy-content li {
+            color: var(--color-secondary);
+        }
+
+        .policy-content ul {
+            padding-left: 1.2em;
+        }
+
+        .policy-meta {
+            margin-top: 28px;
+            font-size: 0.95rem;
+            color: #b0b0b0;
+        }
+
+        .policy-actions {
+            margin-top: 28px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="../../index.html" class="header__logo">INNAMI</a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="../../index.html#about">About</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#works">Works</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#skill">Skill</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="header__hamburger" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="policy-page">
+        <section class="section">
+            <div class="section__inner">
+                <h2 class="section__title" data-en="Privacy">プライバシーポリシー</h2>
+                <div class="policy-content">
+                    <p>AblePhone（以下「本アプリ」）は、ユーザーのプライバシーを尊重し、個人情報の取り扱いに配慮します。本ポリシーは、本アプリにおけるデータの取り扱い（取得、利用、共有、保存、削除）について説明するものです。</p>
+
+                    <h3>0. 本アプリの設計方針</h3>
+                    <ul>
+                        <li>本アプリは、iPhone を Ableton Live 用コントローラとして利用するためのローカルネットワーク向けアプリです。</li>
+                        <li>センサー値や操作値は、ユーザーが指定した接続先に対して OSC（UDP）で送信されます。</li>
+                        <li>ユーザー行動の追跡を目的とした広告 SDK / トラッキング SDK は使用しません。</li>
+                    </ul>
+
+                    <h3>1. 取得する情報</h3>
+                    <ul>
+                        <li>センサー情報: 加速度、デバイスモーション、ジャイロ。</li>
+                        <li>操作情報: フェーダー値、Pad の trigger/release などの入力情報。</li>
+                        <li>接続情報: ユーザーが設定した送信先 IP / Port（QR 読み取りまたは手入力）。</li>
+                        <li>サポート連絡情報: お問い合わせ時にユーザーが送信するメールアドレスおよび本文。</li>
+                        <li>カメラ権限: QR コード読み取り時にのみ使用します。</li>
+                    </ul>
+
+                    <h3>2. 情報の利用目的</h3>
+                    <ul>
+                        <li>OSC 送信機能の提供（リアルタイム制御）</li>
+                        <li>接続設定の反映と通信の確立</li>
+                        <li>ユーザーからの問い合わせへの回答、サポート品質の改善</li>
+                    </ul>
+
+                    <h3>3. 外部送信・第三者提供</h3>
+                    <ul>
+                        <li>センサー情報および操作情報は、ユーザー指定の送信先（同一ネットワーク上の機器を想定）へ OSC（UDP）で送信されます。</li>
+                        <li>上記送信は本アプリ機能そのものに必要な通信です。</li>
+                        <li>法令に基づく場合を除き、開発者が個人情報を第三者へ販売・提供することはありません。</li>
+                    </ul>
+
+                    <h3>4. 保存期間</h3>
+                    <ul>
+                        <li>センサー情報・操作情報は、リアルタイム制御のために処理され、開発者サーバーへ恒久保存しません。</li>
+                        <li>お問い合わせメールは、問い合わせ対応および対応品質確認のために合理的な期間保存する場合があります。</li>
+                    </ul>
+
+                    <h3>5. ユーザーの選択と権利</h3>
+                    <ul>
+                        <li>カメラ権限は iOS 設定からいつでも変更・無効化できます。</li>
+                        <li>本アプリの使用停止やアンインストールにより、端末内のアプリデータは削除されます（iOS仕様に従います）。</li>
+                        <li>お問い合わせ情報の削除依頼は、下記連絡先へご連絡ください。本人確認後、法令上必要な範囲を除き対応します。</li>
+                    </ul>
+
+                    <h3>6. セキュリティ</h3>
+                    <ul>
+                        <li>本アプリは必要最小限のデータ処理を前提とし、不要な個人情報収集を行わない設計を採用しています。</li>
+                        <li>ただし、通信経路や利用環境の安全性はユーザーのネットワーク設定にも依存します。</li>
+                    </ul>
+
+                    <h3>7. 子どものプライバシー</h3>
+                    <ul>
+                        <li>本アプリは13歳未満を主対象として設計していません。</li>
+                        <li>13歳未満の個人情報を意図的に収集しない方針です。</li>
+                    </ul>
+
+                    <h3>8. 本ポリシーの改定</h3>
+                    <ul>
+                        <li>本ポリシーは、法令改正や機能変更に応じて改定される場合があります。</li>
+                        <li>重要な変更がある場合は、サポートサイト上で更新日を明示します。</li>
+                    </ul>
+
+                    <h3>9. お問い合わせ</h3>
+                    <p>本ポリシーに関するお問い合わせは、以下へご連絡ください。</p>
+                    <p><a href="mailto:innami3d@gmail.com">innami3d@gmail.com</a></p>
+
+                    <p class="policy-meta">制定日: 2026-05-21<br>最終改定日: 2026-05-21</p>
+
+                    <div class="policy-actions">
+                        <a class="btn" href="./index.html">サポートページへ戻る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <nav class="footer__nav">
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a href="../../index.html#about">About</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#works">Works</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#skill">Skill</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="footer__sns">
+                <a href="https://www.instagram.com/nam__wav" target="_blank" rel="noopener noreferrer"
+                    class="sns-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/innami_virtual" target="_blank" rel="noopener noreferrer" class="sns-link"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="footer__copyright">&copy; 2024 Innami. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../script.js" defer></script>
+</body>
+
+</html>
