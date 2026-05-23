@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AblePhone Quick Start | INNAMI</title>
+    <meta name="description" content="AblePhone のクイックスタートガイドです。">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .quickstart-page {
+            padding-top: var(--header-height);
+        }
+
+        .quickstart-intro {
+            max-width: 760px;
+            margin: 0 auto 52px;
+            text-align: center;
+        }
+
+        .quickstart-intro p {
+            color: var(--color-secondary);
+        }
+
+        .quickstart-list {
+            display: grid;
+            gap: 22px;
+            margin-bottom: 56px;
+        }
+
+        .quickstart-step {
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background-color: var(--color-bg-section);
+            padding: 24px;
+        }
+
+        .quickstart-step h3 {
+            margin-bottom: 12px;
+            font-family: var(--font-family-heading);
+            font-size: 1.25rem;
+        }
+
+        .quickstart-step p {
+            color: var(--color-secondary);
+        }
+
+        .quickstart-image-placeholder {
+            margin-top: 14px;
+            border: 1px dashed rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.03);
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9a9a9a;
+            font-size: 0.95rem;
+            text-align: center;
+            padding: 12px;
+        }
+
+        .quickstart-image-placeholder img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .quickstart-step ol {
+            padding-left: 1.2em;
+            color: var(--color-secondary);
+        }
+
+        .quickstart-step li + li {
+            margin-top: 8px;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-bottom: 38px;
+        }
+
+        .usage-card {
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background-color: var(--color-bg-section);
+            padding: 26px;
+        }
+
+        .usage-card h3 {
+            margin-bottom: 12px;
+            font-family: var(--font-family-heading);
+            font-size: 1.2rem;
+        }
+
+        .usage-card p {
+            color: var(--color-secondary);
+        }
+
+        .usage-card ol {
+            padding-left: 1.2em;
+            color: var(--color-secondary);
+        }
+
+        .usage-card li + li {
+            margin-top: 8px;
+        }
+
+        .quickstart-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        @media (max-width: 900px) {
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="../../index.html" class="header__logo">INNAMI</a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="../../index.html#about">About</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#works">Works</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#skill">Skill</a></li>
+                    <li class="header__nav-item"><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="header__hamburger" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="quickstart-page">
+        <section class="section">
+            <div class="section__inner">
+                <h2 class="section__title" data-en="Guide">クイックスタート</h2>
+
+                <div class="quickstart-intro">
+                    <p>はじめて AblePhone を使う方向けの最短セットアップ手順です。画像はあとから差し込めるように、各ステップにプレースホルダーを用意しています。</p>
+                </div>
+
+                <div class="quickstart-list">
+                    <article class="quickstart-step">
+                        <h3>ステップ1: Ableton Live 側の準備</h3>
+                        <ol>
+                            <li>Ableton Live 上で空の MIDI トラックを作成します。</li>
+                            <li>ダウンロードした ZIP ファイルを解凍します。</li>
+                            <li><code>AblePhone_Master.amxd</code> を Ableton Live の MIDI トラックにドラッグ&amp;ドロップします。</li>
+                        </ol>
+                        <div class="quickstart-image-placeholder">
+                            <img src="../../img/ablephone-quickstart-live-setup.png" alt="Ableton LiveのMIDIトラック作成とAMXD配置" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="quickstart-step">
+                        <h3>ステップ2: iPhone アプリ接続</h3>
+                        <ol>
+                            <li>iPhone アプリをインストールします。<a href="#">iPhoneアプリのインストールリンク（あとで差し替え）</a></li>
+                            <li><code>SCAN QR</code> をタップしてカメラを起動し、M4L デバイス上の QR コードを読み取ります。</li>
+                            <li><code>CONNECT</code> ボタンを押して接続します。</li>
+                            <li>M4L デバイスのスライダー等が iPhone と連動して動くことを確認します。</li>
+                        </ol>
+                        <div class="quickstart-image-placeholder">
+                            <img src="../../img/ablephone-quickstart-iphone-connect.png" alt="iPhoneでSCAN QRしてCONNECTする手順" loading="lazy">
+                        </div>
+                    </article>
+                </div>
+
+                <h2 class="section__title" data-en="Usage">使い方</h2>
+
+                <div class="usage-grid">
+                    <article class="usage-card">
+                        <h3>パラメータを同期</h3>
+                        <ol>
+                            <li>AblePhone_Master.amxd を読み込んだトラックを開き、同期したいセンサーまたはスライダーを決めます。</li>
+                            <li>対象コントローラの近くにある <code>set</code> ボタンをクリックして、学習待機状態にします。</li>
+                            <li>そのまま Ableton Live 側で、割り当てたいパラメータ（Volume / Pan / 他 M4L デバイス / プラグイン）をクリックします。</li>
+                            <li>デバイス右側のリストで、対応するランプが点灯していることを確認します（点灯 = 同期完了）。</li>
+                            <li>必要に応じて Min / Max を設定し、どの範囲で値をマッピングするかを調整します。</li>
+                            <div class="quickstart-image-placeholder">
+                                <img src="../../img/ablephone-usage-parameter-sync-minmax.png" alt="パラメータ同期のMin/Max設定画面" loading="lazy">
+                            </div>
+                            <li>動作確認として iPhone を動かす、またはスライダーを操作し、対象パラメータが意図どおりに変化するかを確認します。</li>
+                            <li>1つの操作で複数パラメータを制御したい場合は、Ableton Live の Macro に複数パラメータをまとめてから同期してください。</li>
+                        </ol>
+                    </article>
+
+                    <article class="usage-card">
+                        <h3>MIDI パッド</h3>
+                        <ol>
+                            <li>鳴らしたいシンセサイザー等を読み込んだ Instrument トラックを用意します。</li>
+                            <li>その Instrument トラックの <code>MIDI From</code> を、<code>AblePhone_Master.amxd</code> を挿したトラックに設定します。</li>
+                            <div class="quickstart-image-placeholder">
+                                <img src="../../img/ablephone-usage-midi-pad-midi-from.png" alt="InstrumentトラックのMIDI From設定" loading="lazy">
+                            </div>
+                            <li>必要に応じてモニタリング設定（In / Auto）を調整し、MIDI 信号を受けられる状態にします。</li>
+                            <li>AblePhone_Master.amxd 側で各 Pad に割り当てる MIDI ノートナンバーを指定します。</li>
+                            <div class="quickstart-image-placeholder">
+                                <img src="../../img/ablephone-usage-midi-pad-note-number.png" alt="AblePhoneのMIDIノート番号指定" loading="lazy">
+                            </div>
+                            <li>iPhone 側で Pad をタップし、指定した音高で発音されるか確認します。</li>
+                            <li>想定と違う音が鳴る場合は、MIDI ノートナンバーと受信トラックのオクターブ設定を見直します。</li>
+                        </ol>
+                    </article>
+                </div>
+
+                <div class="quickstart-actions">
+                    <a class="btn" href="./index.html">サポートトップへ戻る</a>
+                    <a class="btn" href="./privacy-policy.html">プライバシーポリシー</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <nav class="footer__nav">
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a href="../../index.html#about">About</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#works">Works</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#skill">Skill</a></li>
+                    <li class="footer__nav-item"><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="footer__sns">
+                <a href="https://www.instagram.com/nam__wav" target="_blank" rel="noopener noreferrer"
+                    class="sns-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/innami_virtual" target="_blank" rel="noopener noreferrer" class="sns-link"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="footer__copyright">&copy; 2024 Innami. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../script.js" defer></script>
+</body>
+
+</html>
