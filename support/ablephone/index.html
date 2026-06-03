@@ -31,7 +31,7 @@
 
         .support-intro {
             max-width: 760px;
-            margin: 0 auto 60px;
+            margin: 0 auto 56px;
             text-align: center;
         }
 
@@ -39,10 +39,24 @@
             color: var(--color-secondary);
         }
 
+        .support-hero-image {
+            margin-top: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background-color: var(--color-bg-section);
+            padding: 16px;
+        }
+
+        .support-hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .support-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 1fr);
             gap: 24px;
+            margin-bottom: 56px;
         }
 
         .support-card {
@@ -62,17 +76,50 @@
             padding-left: 1.2em;
         }
 
+        .support-card p + p {
+            margin-top: 12px;
+        }
+
+        .support-quickstart-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding: 12px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--color-primary);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .support-quickstart-link::after {
+            content: '→';
+            transition: transform 0.25s ease;
+        }
+
+        .support-quickstart-link:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.55);
+            color: #fff;
+        }
+
+        .support-quickstart-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        .support-quickstart-link:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 3px;
+        }
+
         .support-meta {
             margin-top: 40px;
             color: #b0b0b0;
             font-size: 0.95rem;
             text-align: center;
-        }
-
-        @media (max-width: 900px) {
-            .support-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -104,56 +151,56 @@
                 <div class="support-intro">
                     <img src="../../img/AblePhoneIcon.png" alt="AblePhone app icon" class="support-app-icon">
                     <p>AblePhone は iPhone のセンサー情報を Ableton Live へ OSC（UDP）で送信するためのアプリです。</p>
+                    <div class="support-hero-image">
+                        <img src="../../img/smune.png" alt="AblePhoneのイメージ画像">
+                    </div>
                 </div>
 
                 <div class="support-grid">
                     <article class="support-card">
-                        <h3>クイックスタート</h3>
-                        <ol>
-                            <li>Ableton Live で AblePhone 用の Max for Live デバイスを開く</li>
-                            <li>Max 側で接続用 QR コード（IP / Port）を表示する</li>
-                            <li>iPhone の AblePhone で SCAN QR を押して読み取る</li>
-                            <li>CONNECT を押す</li>
-                            <li>iPhone を動かす、またはフェーダー・Pad を操作して Live 側の反応を確認する</li>
-                        </ol>
-                        <p><a href="./quick-start.html">画像付きクイックスタートを見る</a></p>
+                        <h3>概要</h3>
+                        <p>AblePhone（Ableton Live + iPhone専用）</p>
+                        <p>iPhoneのモーション・タッチ操作を、Ableton Liveのパラメータへリアルタイム送信できるMax for Liveデバイスです。</p>
+                        <p>演奏・制作で、より直感的なコントロールを実現します。</p>
+                    </article>
+
+                    <article class="support-card">
+                        <h3>対応環境</h3>
+                        <ul>
+                            <li>Ableton Live（Suite） + Max for Live（Windows or Mac）</li>
+                            <li>iPhone（iOS）</li>
+                            <li>通信: OSC（UDP）</li>
+                        </ul>
                     </article>
 
                     <article class="support-card">
                         <h3>できること</h3>
+                        <p>iPhoneのセンサー値をLiveへ送信</p>
                         <ul>
-                            <li>iPhone のセンサー値（User Acceleration / Device Motion / Gyro）を取得して送信</li>
-                            <li>フェーダー・Pad 入力を Ableton Live 側へリアルタイム送信</li>
-                            <li>QR コードで接続先（IP / Port）を簡単設定</li>
+                            <li>User Acceleration</li>
+                            <li>Device Motion</li>
+                            <li>Gyro</li>
+                        </ul>
+                        <p>iPhone側フェーダー操作を送信</p>
+                        <p>Padのトリガー/リリース送信</p>
+                        <p>QR読み取りでIP/Port設定を自動化</p>
+                    </article>
+
+                    <article class="support-card">
+                        <h3>注意事項</h3>
+                        <ul>
+                            <li>iPhoneとPCは同一ネットワーク必須</li>
+                            <li>VPNやネットワーク構成により接続できない場合があります</li>
                         </ul>
                     </article>
 
                     <article class="support-card">
-                        <h3>基本の使い方</h3>
-                        <ol>
-                            <li>Max for Live 側で受信パッチ（M4L デバイス）を開く</li>
-                            <li>Max 側で IP / Port 情報の QR コードを生成</li>
-                            <li>iPhone アプリで SCAN QR を押して読み取り</li>
-                            <li>CONNECT を押して接続</li>
-                            <li>iPhone を動かす / フェーダー操作 / Pad 操作を行い Live 側へ反映</li>
-                        </ol>
-                    </article>
-
-                    <article class="support-card">
-                        <h3>OSC 送信仕様（概要）</h3>
-                        <p>基本的にフレーム単位で /ablephone/frame を送信します。Pad はイベントとして trigger/release の送信構成に対応しています。</p>
-                    </article>
-
-                    <article class="support-card">
-                        <h3>よくある確認ポイント</h3>
-                        <ul>
-                            <li>iPhone と PC が同一ネットワークに接続されているか</li>
-                            <li>QR 読み取り用のカメラ権限が有効か</li>
-                            <li>受信ポート番号が M4L 側と一致しているか</li>
-                            <li>更新レートが高すぎる場合は間引き設定を調整</li>
-                        </ul>
+                        <h3>クイックスタート</h3>
+                        <p><a class="support-quickstart-link" href="./quick-start.html">画像付きクイックスタートを見る</a></p>
                     </article>
                 </div>
+
+
 
                 <section id="contact" class="section contact">
                     <div class="section__inner">
